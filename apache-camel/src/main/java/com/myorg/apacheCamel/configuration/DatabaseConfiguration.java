@@ -23,8 +23,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @PropertySource({ "classpath:database.properties" })
-// @ComponentScan({ "com.myorg.apacheCamel" })
-// @EnableJpaRepositories(basePackages = "com.myorg.apacheCamel.repository")
+@ComponentScan({ "com.myorg.apacheCamel" })
+@EnableJpaRepositories(basePackages = "com.myorg.apacheCamel.repository")
 public class DatabaseConfiguration {
 
 	public DatabaseConfiguration() {
@@ -34,18 +34,18 @@ public class DatabaseConfiguration {
 	@Autowired
 	private Environment env;
 
-	/*@Bean
+	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		final LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(dataSource());
-		entityManagerFactoryBean.setPackagesToScan(new String[] { "net.javaguides.springmvc.entity" });
+		entityManagerFactoryBean.setPackagesToScan(new String[] { "com.myorg.apacheCamel.model" });
 
 		final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		entityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
 		entityManagerFactoryBean.setJpaProperties(additionalProperties());
 
 		return entityManagerFactoryBean;
-	}*/
+	}
 
 	@Bean
 	public DataSource dataSource() {
