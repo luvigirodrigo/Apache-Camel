@@ -2,6 +2,9 @@ package com.myorg.apacheCamel.example_1;
 
 import java.io.IOException;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultCamelContext;
@@ -24,5 +27,15 @@ public class CamelHelloWorld {
 			logger.error("CamelHelloWorld -> executeHelloWorld, Exception occured : " + e);
 		}
 		logger.trace("CamelHelloWorld -> executeHelloWorld was invoked");
+	}
+
+	@PostConstruct
+	public void setUp() {
+		logger.trace("CamelHelloWorld bean was initialized");
+	}
+
+	@PreDestroy
+	public void tearDown() {
+		logger.trace("CamelHelloWorld bean was destroyed");
 	}
 }

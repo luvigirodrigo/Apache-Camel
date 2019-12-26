@@ -26,7 +26,7 @@ public class ApacheCamelApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Camel - Hello World example
+		// CamelHelloWorld example
 		executeCamelExample1();
 	}
 
